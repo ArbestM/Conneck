@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Conneck.Data
 {
-      public enum Catype
+      public enum Cartype
       {
             Hybrid=1,
             Electic,
@@ -18,8 +18,10 @@ namespace Conneck.Data
             [Key]
             public int CarID { get; set; }
 
+            public Guid OwerId { get; set; }
+
             [Required]
-            public Catype VehiculeType { get; set; }
+            public Cartype CarType { get; set; }
 
             [Required]
             public string CarName { get; set; }
@@ -27,19 +29,22 @@ namespace Conneck.Data
             [Required]
             public string Description { get; set; }
 
-            [Required]
-            public string Model { get; set; }
+           // [Required]
+           // public string Model { get; set; }
 
             [Required]
             public string Brand { get; set; }
 
             [Required]
-            public string color { get; set; }
+            public string Color { get; set; }
 
             [Required]
-            public int VIN { get; set; }
-
+            public string VIN { get; set; }
+            [Required]
             public string  PlateNumber { get; set; }
+
+            [Required]
+            public int FBY { get; set; }
 
             [Required]
             public DateTimeOffset CreatedUtc { get; set; }

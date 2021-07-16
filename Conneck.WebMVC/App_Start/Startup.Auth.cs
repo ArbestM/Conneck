@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Conneck.WebMVC.Models;
+using Conneck.Data;
 
 namespace Conneck.WebMVC
 {

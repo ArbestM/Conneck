@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Conneck.WebMVC.Models;
+using Conneck.Data;
 
 namespace Conneck.WebMVC
 {
