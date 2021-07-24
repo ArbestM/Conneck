@@ -32,10 +32,13 @@ namespace Conneck.Data
                   return new ApplicationDbContext();
             }
 
+            public DbSet<Admin> Admins { get; set; }
+
+            public DbSet<Store> Stores { get; set; }
+
             public DbSet<Car> Cars { get; set; }
 
-           
-            
+            public DbSet<CarCategory> CarCategories { get; set; }
 
             protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {

@@ -7,13 +7,13 @@ namespace Conneck.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class UpdateCarEntity : IMigrationMetadata
+    public sealed partial class SecondMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateCarEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SecondMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107160011108_UpdateCarEntity"; }
+            get { return "202107240726448_SecondMigration"; }
         }
         
         string IMigrationMetadata.Source

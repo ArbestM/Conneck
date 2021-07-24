@@ -1,4 +1,5 @@
-﻿using Conneck.Models.Car;
+﻿using Conneck.Data;
+using Conneck.Models;
 using Conneck.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -9,10 +10,10 @@ using System.Web.Mvc;
 
 namespace Conneck.WebMVC.Controllers
 {
+      [Authorize]
       public class CarController : Controller
       {
             // GET: Car
-            [Authorize]
             public ActionResult Index()
             {
                   var userId = Guid.Parse(User.Identity.GetUserId());
@@ -24,6 +25,7 @@ namespace Conneck.WebMVC.Controllers
 
             public ActionResult Create()
             {
+
                   return View();
             }
 
@@ -31,8 +33,8 @@ namespace Conneck.WebMVC.Controllers
             [ValidateAntiForgeryToken]
             public ActionResult Create(CarCreate model)
             {
-                  // this method will make sure the madel is valid, grabs the current userid,
-                  // calls on in model create and returns the ser back to the idex view
+                  // this method will make sure the model is valid, grabs the current userid,
+                  // calls on in model create and returns the ser back to the index view
                   if (!ModelState.IsValid)
                   {
                         return View(model);
@@ -42,36 +44,45 @@ namespace Conneck.WebMVC.Controllers
 
                   if (service.CreateCar(model))
                   {
-                        TempData["SaveResult"] = "Car was added."; // The temdata removes the information after it
+
+                        TempData["SaveResult"] = "Item was added."; // The temdata removes the information after it
                         return RedirectToAction("Index");
                   }
 
-                  ModelState.AddModelError("", "Car could not be added");
+                  ModelState.AddModelError("", "Item could not be added");
 
                   return View(model);
             }
 
-            public ActionResult Details(int id)
+            public ActionResult Details(int carID)
             {
+
                   var svc = CreateCarService();
-                  var model = svc.GetCarById(id);
+
+                  var model = svc.GetCarByID(carID);
+
 
                   return View(model);
             }
 
 
-            public ActionResult Edit(int id)
+            public ActionResult Edit(int carID)
             {
                   var service = CreateCarService();
-                  var detail = service.GetCarById(id);
+
+                  var detail = service.GetCarByID(carID);
+
 
                   var model = new CarEdit
                   {
                         CarID = detail.CarID,
                         CarName = detail.CarName,
-                        Brand = detail.Brand,
+                        Description = detail.Description,
                         Color = detail.Color,
+                        Model = detail.Model,
+                        AdminID = detail.AdminID,
                         PlateNumber = detail.PlateNumber,
+                    
                   };
 
                   return View(model);
@@ -79,36 +90,38 @@ namespace Conneck.WebMVC.Controllers
 
             [HttpPost]
             [ValidateAntiForgeryToken]
-            public ActionResult Edit(int id, CarEdit model)
+            public ActionResult Edit(int carID, CarEdit model)
             {
                   if (!ModelState.IsValid)
                   {
                         return View(model);
                   }
 
-                  if(model.CarID != id)
+                  if (model.CarID != carID)
                   {
-                        ModelState.AddModelError("", "Id Mismatch");
+                        ModelState.AddModelError("", "VIN does not match.");
+                        return View(model);
                   }
 
-                  var serice = CreateCarService();
+                  var service = CreateCarService();
 
-                  if (serice.UpdateCar(model))
+                  if (service.UpdateCar(model))
                   {
-                        TempData["SaveResult"] = "Car was Updated."; // The temdata removes the information after it
+                        TempData["SaveResult"] = "Content was Updated."; // The temdata removes the information after it
                         return RedirectToAction("Index");
                   }
 
-                  ModelState.AddModelError("", "Car could not be Updated.");
+                  ModelState.AddModelError("", "Content could not be Updated.");
 
                   return View(model);
             }
 
             [ActionName("Delete")]
-            public ActionResult Delete(int id)
+            public ActionResult Delete(int carID)
             {
                   var svc = CreateCarService();
-                  var model = svc.GetCarById(id);
+
+                  var model = svc.GetCarByID(carID);
 
                   return View(model);
             }
@@ -116,11 +129,11 @@ namespace Conneck.WebMVC.Controllers
             [HttpPost]
             [ActionName("Delete")]
             [ValidateAntiForgeryToken]
-            public ActionResult DeletePost(int id)
+            public ActionResult DeletePost(int cardID)
             {
                   var service = CreateCarService();
 
-                  service.DeleteCarId(id);
+                  service.DeleteCarByCardID(cardID);
 
                   TempData["SaveResult"] = "Car was Deleted."; // The temdata removes the information after it
                   return RedirectToAction("Index");
@@ -131,6 +144,7 @@ namespace Conneck.WebMVC.Controllers
             {
                   var userId = Guid.Parse(User.Identity.GetUserId());
                   var service = new CarService(userId);
+
                   return service;
             }
       }

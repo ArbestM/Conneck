@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Conneck.Models.AdminList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { adminID = item.AdminID }) |
+            @Html.ActionLink("Details", "Details", new { adminID = item.AdminID }) |
+            @Html.ActionLink("Delete", "Delete", new { adminID = item.AdminID })
+        </td>
+    </tr>
+}
+
+</table>
