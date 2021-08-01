@@ -26,15 +26,13 @@ namespace Conneck.Services
 
                         new Car()
                         {
-                              CarName = model.CarName,
-                              Description = model.Description,
+                              Make = model.Make,
                               Model = model.Model,
-                              Brand = model.Brand,
                               Color = model.Color,
-                              FBY = model.FBY,
                               VIN = model.VIN,
                               CarType = model.CarType,
-                              PlateNumber = model.PlateNumber,
+                              LicensePlate = model.LicensePlate,
+                              Year = model.Year,
                               StoreID = model.Admin.AdminID,
                         };
 
@@ -56,13 +54,13 @@ namespace Conneck.Services
                               ctx
 
                               .Cars
-                               .Where(e => e.OwerId == _userId)
+                            //   .Where(e => e.OwerId == _userId)
                               .Select(
                                     e =>
                                     new CarList
                                     {
                                           CarID = e.CarID,
-                                          CarName = e.CarName,
+                                          Make = e.Make,
                                           CarType = e.CarType,
                                        //   CategoryID = e.CategoryID,
                                           Store = e.Store.StoreID,
@@ -84,13 +82,13 @@ namespace Conneck.Services
                         return new CarDetail
                         {
                               CarID = entity.CarID,
-                              CarName = entity.CarName,
-                              Description = entity.Description,
-                              Brand = entity.Brand,
+                              Make = entity.Make,
+                              Model = entity.Model,
                               Color = entity.Color,
-                              PlateNumber = entity.PlateNumber,
                               VIN = entity.VIN,
-                              FBY = entity.FBY,
+                              LincesePlate = entity.LicensePlate,
+                              Year = entity.Year,
+                              CategoryID = entity.CarCategory.CategoryID,
                               AdminID = entity.Store.AdminID,
                               CreatedUtc = entity.CreatedUtc,
                               ModifiedUtc = entity.Modified
@@ -110,11 +108,11 @@ namespace Conneck.Services
                               .Cars
                               .Single(e => e.CarID == model.CarID);
 
-                        entity.CarName = model.CarName;
-                        entity.Description = model.Description;
+                        entity.Make = model.Make;
+                        entity.Model = model.Model;
                         entity.Color = model.Color;
                         entity.CarType = model.CarType;
-                        entity.PlateNumber = model.PlateNumber;
+                        entity.LicensePlate = model.LicensePlate;
                         entity.Admin.AdminID = model.AdminID;
                         entity.Modified = DateTimeOffset.UtcNow;
 

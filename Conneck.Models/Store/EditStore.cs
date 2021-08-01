@@ -23,7 +23,7 @@ namespace Conneck.Models
             [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
             public string Description { get; set; }
 
-            [Required]
+           
             [DataType(DataType.EmailAddress)]
             public string Email { get; set; }
 

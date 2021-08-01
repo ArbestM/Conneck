@@ -13,24 +13,13 @@ namespace Conneck.Models
       {
             [Required]
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
-            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            [Display(Name = "Car Name")]
-            public string CarName { get; set; }
-
-            [Required]
-            [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
-            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            public string Description { get; set; }
+            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]          
+            public string Make { get; set; }
 
             [Required]
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
             public string Model { get; set; }
-
-            [Required]
-            [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
-            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            public string Brand { get; set; }
 
             [Required]
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
@@ -48,13 +37,16 @@ namespace Conneck.Models
             public Cartype CarType { get; set; }
 
             [Required]
-            [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
-            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            [Display(Name = "Plate Number")]
-            public string PlateNumber { get; set; }
+            public int CategoryID { get; set; }
 
             [Required]
-            public int FBY { get; set; }
+            [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
+            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
+            [Display(Name = "License Plate")]
+            public string LicensePlate { get; set; }
+
+            [Required]
+            public int Year { get; set; }
            
             [ForeignKey(nameof(Admin))]
             [Display(Name = "Admin ID")]

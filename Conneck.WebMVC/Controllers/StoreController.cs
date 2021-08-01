@@ -111,12 +111,12 @@ namespace Conneck.WebMVC.Controllers
 
                   foreach (var store in _db.Stores)
                   {
-                        if (store.StoreName.Equals(model.StoreName))
+                       /* if (store.StoreName.Equals(model.StoreName))
                         {
-                              ModelState.AddModelError("","There is a store registered with this name Please choose different name");
+                              ModelState.AddModelError("", "There is a store registered with this name Please choose different name");
                               return View(model);
-                        }
-                        else if(store.Email.Equals(model.Email))
+                        }*/
+                        if (store.Email.Equals(model.Email))//Used to be an else if 
                         {
                               ModelState.AddModelError("", "This email is already used");
                               return View(model);
@@ -141,7 +141,7 @@ namespace Conneck.WebMVC.Controllers
 
                   var model = toRemove.GetStoreByID(storeID);
 
-        
+
                   return View(model);
             }
 

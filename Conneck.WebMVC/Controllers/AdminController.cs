@@ -50,13 +50,13 @@ namespace Conneck.WebMVC.Controllers
                         if (kvp.FirstName.Equals(model.FirstName) && kvp.LastName.Equals(model.LastName))
                         {
 
-                              ModelState.AddModelError("", "There is an account registerd with this names.");
-
+                              ModelState.AddModelError("", "Admin already exist");
                               return View(model);
 
-                        }else if (kvp.Email.Equals(model.Email))
+                        }
+                        if (kvp.Email.Equals(model.Email))
                         {
-                              ModelState.AddModelError("", "There is account associate with this email.");
+                              ModelState.AddModelError("", "This email is already used .");
                               return View(model);
                         }
                   }

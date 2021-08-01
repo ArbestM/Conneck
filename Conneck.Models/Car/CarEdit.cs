@@ -9,29 +9,22 @@ using System.Threading.Tasks;
 
 namespace Conneck.Models
 {
-     public class CarEdit
+      public class CarEdit
       {
-            [Display(Name ="Index")]
+            [Display(Name = "Index")]
             public int CarID { get; set; }
 
-            [Required]
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            [Display(Name = "Car Name")]
-            public string CarName { get; set; }
+            public string Make { get; set; }
 
-            [Required]
-            [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
-            [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            public string Description { get; set; }
-
-            [Required]
+           
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
             public string Model { get; set; }
 
 
-            [Required]
+          
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
             public string Color { get; set; }
@@ -39,15 +32,13 @@ namespace Conneck.Models
             [Display(Name = "Car Type")]
             public Cartype CarType { get; set; }
 
-            [Required]
+         
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            [Display(Name = "Plate Number")]
-            public string PlateNumber { get; set; }
+            [Display(Name = "License Plate")]
+            public string LicensePlate { get; set; }
 
-
-           
-            [Display(Name = "Admin ID")]
+            [Display(Name = "Modified")]
             public int AdminID { get; set; }
 
       }

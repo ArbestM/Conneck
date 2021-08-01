@@ -20,10 +20,10 @@ namespace Conneck.Data
             public string Description { get; set; }
 
             [Required]
-            public string AdminC { get; set; }
+            public int AdminC { get; set; }
 
             [Required]
-            public string AdminM { get; set; }
+            public int AdminM { get; set; }
 
             [Required]
             public DateTimeOffset CreatedUtc { get; set; }

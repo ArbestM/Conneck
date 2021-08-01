@@ -1,0 +1,88 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 150vh;
+    background-color: darkturquoise;
+}
+
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background-size: cover;
+}
+
+header.sticky .logo,
+header.sticky ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+
+.back {
+    margin-left: 40%;
+    width: 70vh;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 4%;
+    box-shadow: 2px 2px 2px 2px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.backk {
+    margin-left: 40%;
+    width: 70vh;
+    height: 110%;
+    border: 1px solid black;
+    border-radius: 4%;
+    box-shadow: 2px 2px 2px 2px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.ddd {
+    line-height: 50px;
+    margin-left: -80px;
+    padding: 40px;
+    font-size: 50px;
+    font-family: Algerian;
+    color: #fff;
+}
+
+.lonplac {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background-size: cover;
+}
+
+.login {
+    line-height: 50px;
+    margin-left: 88px;
+}
+
+.imag-user {
+    margin-left: 110px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+}
+
+.one {
+    margin-left: 20px;
+    width: 110px;
+    height: 40px;
+}
+
+.one1 {
+    height: 40px;
+    width: 110px;
+}
+
+.input[type=submit] {
+    height: 30px;
+}

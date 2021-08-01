@@ -14,7 +14,7 @@ namespace Conneck.Models
             public int CarID { get; set; }
        
             [Display(Name ="Car Name")]
-            public string CarName { get; set; }
+            public string Make { get; set; }
 
             public Cartype CarType { get; set; }
 

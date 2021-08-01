@@ -76,15 +76,13 @@ namespace Conneck.WebMVC.Controllers
                   var model = new CarEdit
                   {
                         CarID = detail.CarID,
-                        CarName = detail.CarName,
-                        Description = detail.Description,
-                        Color = detail.Color,
+                        Make = detail.Make,
                         Model = detail.Model,
+                        Color = detail.Color,                  
+                        LicensePlate = detail.LincesePlate,
                         AdminID = detail.AdminID,
-                        PlateNumber = detail.PlateNumber,
-                    
+                                         
                   };
-
                   return View(model);
             }
 

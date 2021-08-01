@@ -21,7 +21,7 @@ namespace Conneck.Models
             public string Description { get; set; }
 
             [Display(Name = "Modified")]           
-            public string AdminM { get; set; }
+            public int AdminM { get; set; }
 
             public virtual Admin Admin { get; set; }
 

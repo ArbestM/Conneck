@@ -27,7 +27,7 @@ namespace Conneck.Services
                         {
                               CategoryName = model.CategoryName,
                               Description = model.Description,
-                              AdminC = model.Admin.FirstName
+                              AdminC = model.AdminC,
                         };
 
                   using (var ctx = new ApplicationDbContext())
@@ -76,7 +76,7 @@ namespace Conneck.Services
 
                         entity.CategoryName = model.CategoryName;
                         entity.Description = model.Description;
-                        entity.AdminM = model.Admin.FirstName;
+                        entity.AdminM = model.AdminM;
                         entity.Modified = DateTimeOffset.Now;
                       
                         return ctx.SaveChanges() == 1;

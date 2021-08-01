@@ -20,10 +20,10 @@ namespace Conneck.Models
             public string Description { get; set; }
 
             [Display(Name = "Created")]
-            public string AdminC { get; set; }
+            public int AdminC { get; set; }
 
             [Display(Name = "Modified")]
-            public string AdminM { get; set; }
+            public int AdminM { get; set; }
 
             [Display(Name ="Created Time")]
             public DateTimeOffset CreatedUtc { get; set; }

@@ -2,38 +2,62 @@
 
 @{
     ViewBag.Title = "Index";
+
 }
+<br />
+<br />
+<div class="border backgroundWhite">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-info">Car Category List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a href="Create" class="btn btn-info">
+                <i class="fas fa-plus"></i>&nbsp; Create New
+            </a>
+        </div>
+    </div>
 
-<h2>Index</h2>
+    <div>
+        @if (Model == null)
+        {
+            <h1>Emplty</h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+        }
+        else
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(model => model.CategoryID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CategoryName)
+                    </th>
+                    <th></th>
+                </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { inputID = item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { inputID = item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { inputID = item.CategoryID })
-        </td>
-    </tr>
-}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CategoryID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+                        <td style="width:150px;">
+                            <div class="btn-group" role="group">
+                                @Html.ActionLink("Edit", "Edit", new { inputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-primary text-white" })
+                                @Html.ActionLink("Details", "Details", new { inputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-success text-white" })
+                                @Html.ActionLink("Delete", "Delete", new { inputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-danger text-white" })
+                            </div>
 
-</table>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
+

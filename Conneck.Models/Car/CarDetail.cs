@@ -12,17 +12,10 @@ namespace Conneck.Models
             [Display(Name = "Index")]
             public int CarID { get; set; }
 
-            [Display(Name = "Car Name")]
-            public string CarName { get; set; }
-
-            [Required]
-            public string Description { get; set; }
+            public string Make { get; set; }
 
             [Required]
             public string Model { get; set; }
-
-            [Required]
-            public string Brand { get; set; }
 
             public string Color { get; set; }
 
@@ -32,11 +25,11 @@ namespace Conneck.Models
                   get; set;
             }
 
-            [Display(Name = "Plate Number")]
-            public string PlateNumber { get; set; }
+            [Display(Name = "License Plate")]
+            public string LincesePlate { get; set; }
 
             [Required]
-            public int FBY { get; set; }
+            public int Year { get; set; }
 
             
             [Display(Name = "Category")]

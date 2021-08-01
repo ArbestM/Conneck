@@ -65,6 +65,18 @@
     <Compile Include="Migrations\202107240726448_SecondMigration.Designer.cs">
       <DependentUpon>202107240726448_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107251359100_FixingError.cs" />
+    <Compile Include="Migrations\202107251359100_FixingError.Designer.cs">
+      <DependentUpon>202107251359100_FixingError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107281820495_AddAndUpdateDataLayer.cs" />
+    <Compile Include="Migrations\202107281820495_AddAndUpdateDataLayer.Designer.cs">
+      <DependentUpon>202107281820495_AddAndUpdateDataLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108010311123_EditCarLayer.cs" />
+    <Compile Include="Migrations\202108010311123_EditCarLayer.Designer.cs">
+      <DependentUpon>202108010311123_EditCarLayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store.cs" />
@@ -76,6 +88,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107240726448_SecondMigration.resx">
       <DependentUpon>202107240726448_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107251359100_FixingError.resx">
+      <DependentUpon>202107251359100_FixingError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107281820495_AddAndUpdateDataLayer.resx">
+      <DependentUpon>202107281820495_AddAndUpdateDataLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108010311123_EditCarLayer.resx">
+      <DependentUpon>202108010311123_EditCarLayer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

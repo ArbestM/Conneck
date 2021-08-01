@@ -16,10 +16,9 @@ namespace Conneck.Models
             [Display(Name ="Description")]
             public string Description { get; set; }
 
-            [Display(Name ="Created")]
-            public string AdminC { get; set; }
+            [Display(Name ="Admin _D")]
+            public int AdminC { get; set; }
 
-            public virtual Admin Admin { get; set; }
 
       }
 }

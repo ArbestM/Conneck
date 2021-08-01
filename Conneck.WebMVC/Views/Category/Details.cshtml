@@ -3,72 +3,95 @@
 @{
     ViewBag.Title = "Details";
 }
+<br />
 
-<h2>Details</h2>
+<h2>Car Cartegory Details</h2>
+<br />
+<div class="border backgroundWhite">
+    <table class="table table-bordered">
+        <tr class="table-secondary d">
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            </th>
 
-<div>
-    <h4>DetailCategory</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </dt>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.CategoryID)
-        </dd>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </dt>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.CategoryName)
-        </dd>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminM)
+            </th>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.CategoryID)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AdminC)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.CategoryName)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.AdminC)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AdminM)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.AdminC)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.AdminM)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.AdminM)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.AdminM)
+            </td>
+        </tr>
+    </table>
+    <div class="form-group row">
+        <div class="col-sm-8 ">
+            <div class="row">
+                <div class="col-3">
+                    @Html.ActionLink("Update ", "Edit", new { inputID = Model.CategoryID }, htmlAttributes: new { @class = "col-sm-12 btn btn-primary text-white" })
+                </div>
+                <div class="col-3">
+                    <a href="Index" class="btn btn-success form-control">
+                        &nbsp; Back to List
+                    </a>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
+            </div>
 
-    </dl>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { inputID= Model.CategoryID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+

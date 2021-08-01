@@ -20,34 +20,32 @@ namespace Conneck.Data
             [Key]
             public int CarID { get; set; }
 
-            public Guid OwerId { get; set; }
-
             [Required]
             public Cartype CarType { get; set; }
 
             [Required]
-            public string CarName { get; set; }
-
-            [Required]
-            public string Description { get; set; }
+            public string Make { get; set; }
 
             [Required]
             public string Model { get; set; }
-
-            [Required]
-            public string Brand { get; set; }
 
             [Required]
             public string Color { get; set; }
 
             [Required]
             public string VIN { get; set; }
+                                                 
+            [Required]
+            public string LicensePlate { get; set; }
 
             [Required]
-            public string PlateNumber { get; set; }
+            public int Mileage { get; set; }
 
             [Required]
-            public int FBY { get; set; }
+            public int Rate { get; set; }
+
+            [Required]
+            public int Year { get; set; }
 
             
             [Required]
@@ -63,8 +61,6 @@ namespace Conneck.Data
             [ForeignKey(nameof(CarCategory))]
             public int? CategoryID { get; set; }
             public virtual CarCategory CarCategory { get; set; }
-
-
 
       }
 }
