@@ -1,0 +1,103 @@
+﻿@model Conneck.Models.DetailCategory
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="border backgroundWhite">
+        <p>
+            <h1>Are you sure you want to delete this
+            <br /> Car Category Item ?</h1>
+
+        </p>
+        <br />
+        <table class="table table-bordered">
+            <tr class="table-secondary d">
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryID)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.AdminC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdminM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedUtc)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedUtc)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.AdminM)
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.CategoryID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CategoryName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.AdminC)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.AdminM)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CreatedUtc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ModifiedUtc)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.AdminM)
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-5 offset-2">
+            <div class="row">
+                <div class="col-6">
+                    <input type="submit" value="YES" class="btn btn-info form-control" />
+                  
+                </div>
+                <div class="col-6">
+                    <a href="Index" class="btn btn-success form-control">
+                        &nbsp; NON
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</form>

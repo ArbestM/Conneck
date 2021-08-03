@@ -1,13 +1,15 @@
 ﻿using Conneck.Data;
-using Conneck.Models.Car;
+using Conneck.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Conneck.Data.Car;
 
 namespace Conneck.Services
 {
+
       public class CarService
       {
             private readonly Guid _userId;
@@ -24,27 +26,31 @@ namespace Conneck.Services
 
                         new Car()
                         {
-                              OwerId = _userId,
-                              CarType = model.CarType,
-                              CarName = model.CarName,
-                              Description = model.Description,
-                              Model = model.Model,
-                              Brand = model.Brand,
+                              Make = model.Make,
+                              CarM = model.CarM,
                               Color = model.Color,
                               VIN = model.VIN,
-                              FBY = model.FBY,
-                              PlateNumber = model.PlateNumber
+                              CarType = model.CarType,
+                              LicensePlate = model.LicensePlate,
+                              Year = model.Year,
+                              CategoryID = model.CategoryID,
+                              StoreID = model.StoreID,
+                              Admin = model.AdminID,
+                              Mileage = model.Mileage,
+                              Rate = model.Rate
                         };
 
                   using (var ctx = new ApplicationDbContext())
                   {
                         ctx.Cars.Add(entity);
 
+
                         return ctx.SaveChanges() == 1;
                   }
             }
 
-            public IEnumerable<CarListItem> GetCars()
+
+            public IEnumerable<CarList> GetCars()
             {
                   using (var ctx = new ApplicationDbContext())
                   {
@@ -52,47 +58,47 @@ namespace Conneck.Services
                               ctx
 
                               .Cars
-                              .Where(e => e.OwerId == _userId)
+                            //   .Where(e => e.OwerId == _userId)
                               .Select(
                                     e =>
-                                    new CarListItem
+                                    new CarList
                                     {
                                           CarID = e.CarID,
-                                          CarName = e.CarName,
-                                          
+                                          Make = e.Make,
                                           CarType = e.CarType,
+                                            CategoryID = e.CategoryID,
+                                          Store = e.Store.StoreID,
+
                                     });
 
                         return query.ToArray();
                   }
-
-
             }
 
-            public CarDetail GetCarById(int id)
+            public CarDetail GetCarByID(int input)
             {
                   using (var ctx = new ApplicationDbContext())
                   {
                         var entity =
                               ctx
                               .Cars
-                              .Single(e => e.CarID == id);
-                        return
-                              new CarDetail
-                              {
-                                    CarID = entity.CarID,
-                                    CarType = entity.CarType,
-                                    CarName = entity.CarName,
-                                    Description = entity.Description,
-                                    //Model = model.Model,
-                                    Brand = entity.Brand,
-                                    Color = entity.Color,
-                                    VIN = entity.VIN,
-                                    FBY = entity.FBY,
-                                    PlateNumber = entity.PlateNumber,
-                                    CreatedUtc = entity.CreatedUtc,
-                                    ModifiedUtc = entity.Modified
-                              };
+                              .Single(e => e.CarID == e.CarID && e.CarID == input);
+                        return new CarDetail
+                        {
+                              CarID = entity.CarID,
+                              Make = entity.Make,
+                              CarM = entity.CarM,
+                              Color = entity.Color,
+                              VIN = entity.VIN,
+                              LincesePlate = entity.LicensePlate,
+                              Year = entity.Year,
+                              CategoryID = entity.CarCategory.CategoryID,
+                              AdminID = entity.Store.AdminID,
+                              CreatedUtc = entity.CreatedUtc,
+                              ModifiedUtc = entity.Modified
+
+                        };
+
                   }
             }
 
@@ -104,13 +110,14 @@ namespace Conneck.Services
                               ctx
 
                               .Cars
-                              .Single(E => E.CarID == model.CarID);
-                        entity.CarID = model.CarID;
-                        entity.Description = model.Description;
-                        entity.CarName = model.CarName;
-                        entity.Brand = model.Brand;
+                              .Single(e => e.CarID == model.CarID);
+
+                        entity.Make = model.Make;
+                        entity.CarM = model.CarM;
                         entity.Color = model.Color;
-                        entity.PlateNumber = model.PlateNumber;
+                        entity.CarType = model.CarType;
+                        entity.LicensePlate = model.LicensePlate;
+                        entity.Admin = model.AdminID;
                         entity.Modified = DateTimeOffset.UtcNow;
 
                         return ctx.SaveChanges() == 1;
@@ -118,18 +125,21 @@ namespace Conneck.Services
                   }
             }
 
-            public bool DeleteCarId(int id)
+            public bool DeleteCarByCardID(int carID)
             {
-                  using(var ctx = new ApplicationDbContext())
+                  using (var ctx = new ApplicationDbContext())
                   {
                         var entity =
                               ctx
                               .Cars
-                              .Single(e => e.CarID == id);
+                              .Single(e => e.CarID == carID);
+
                         ctx.Cars.Remove(entity);
 
                         return ctx.SaveChanges() == 1;
                   }
             }
       }
+
+
 }

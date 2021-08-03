@@ -1,0 +1,132 @@
+﻿@model Conneck.Models.DetailAdmin
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<h1>Are you sure you want to delete
+    <br />This profile ?</h1>
+<form method="post">
+    @Html.AntiForgeryToken()
+    <br />
+
+    <div class="border col-sm-7">
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.FirstName)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.LastName)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.LastName)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Phone)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Phone)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Email)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Address)
+            </div>
+            <div class="col-5">
+                @Html.DisplayFor(model => model.Address)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.City)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.City)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Zip)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Zip)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.State)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.State)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Store)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Store)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </div>
+            <div class="col-5">
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </div>
+            <div class="col-5">
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </div>
+        </div>
+        <br />
+    </div>
+    <div class="form-group row">
+        <div class="col-3">
+            <input type="submit" value="YES" class="btn btn-info form-control" />
+
+        </div>
+        <div class="col-3">
+            <a href="Index" class="btn btn-success form-control">
+                &nbsp; NON
+            </a>
+        </div>
+    </div>
+</form>

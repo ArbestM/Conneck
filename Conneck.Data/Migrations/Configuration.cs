@@ -10,7 +10,6 @@ namespace Conneck.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Conneck.Data.ApplicationDbContext";
         }
 
         protected override void Seed(Conneck.Data.ApplicationDbContext context)

@@ -1,72 +1,82 @@
-﻿@model IEnumerable<Conneck.Models.Car.CarListItem>
+﻿@model IEnumerable<Conneck.Models.CarList>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="border backgroundWhite">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-info">Car  List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a href="@Url.Action("Create", "Car")" class="btn btn-info">
+                <i class="fas fa-plus"></i>
+                <span>
+                    Add new car
+                </span>
+            </a>
+        </div>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-@if(TempData.ContainsKey("SaveResult")) {
-<div class="alert alert-success fade in" role="alert">
-    @ViewBag.SaveResult
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
-}
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CarID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarType)
-        </th>
-    </tr>
-
-    @if (Model == null)
-    {
-
-
-        <h1> Inventory Empty</h1>
-    }
-    else
-    {
-        foreach (var item in Model)
+    <div>
+        @if (Model == null)
         {
+            <h1>Emplty</h1>
+
+        }
+        else
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Make)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CategoryID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Store)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.CarID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CarName)
+                    @Html.DisplayFor(modelItem => item.Make)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                    @Html.DisplayFor(modelItem => item.CarType)
                 </td>
                 <td>
-                    
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CarID })
+                    @Html.DisplayFor(modelItem => item.CategoryID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store)
+                </td>
+                <td style="width:150px;">
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Edit", "Edit", new { carID = item.CarID }, htmlAttributes: new { @class = "btn btn-primary text-white" })
+                        @Html.ActionLink("Details", "Details", new { carID = item.CarID }, htmlAttributes: new { @class = "btn btn-success text-white" })
+                        @Html.ActionLink("Delete", "Delete", new { carID = item.CarID }, htmlAttributes: new { @class = "btn btn-danger text-white" })
+                    </div>
+
                 </td>
             </tr>
+                }
+            </table>
         }
+    </div>
+</div>
 
-    }
-
-
-
-</table>
