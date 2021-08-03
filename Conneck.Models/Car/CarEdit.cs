@@ -21,7 +21,8 @@ namespace Conneck.Models
            
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            public string Model { get; set; }
+            [Display(Name = "Model")]
+            public string CarM { get; set; }
 
 
           

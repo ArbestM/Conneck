@@ -12,8 +12,11 @@
             <h2 class="text-info">Car Category List</h2>
         </div>
         <div class="col-6 text-right">
-            <a href="Create" class="btn btn-info">
-                <i class="fas fa-plus"></i>&nbsp; Create New
+            <a href="@Url.Action("Create", "Category")" class="btn btn-info">
+                <i class="fas fa-plus"></i>
+                <span>
+                    Add new category
+                </span>
             </a>
         </div>
     </div>
@@ -48,8 +51,8 @@
                         </td>
                         <td style="width:150px;">
                             <div class="btn-group" role="group">
-                                @Html.ActionLink("Edit", "Edit", new { inputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-primary text-white" })
-                                @Html.ActionLink("Details", "Details", new { inputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-success text-white" })
+                                @Html.ActionLink("Edit", "Edit", new { InputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-primary text-white" })
+                                @Html.ActionLink("Details", "Details", new { InputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-success text-white" })
                                 @Html.ActionLink("Delete", "Delete", new { inputID = item.CategoryID }, htmlAttributes: new { @class = "btn btn-danger text-white" })
                             </div>
 

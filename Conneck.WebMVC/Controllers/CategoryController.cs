@@ -44,7 +44,11 @@ namespace Conneck.WebMVC.Controllers
                   {
                         return View(model);
                   }
-
+                  if(model == null)
+                  {
+                        ModelState.AddModelError("", "These field can not be empty");
+                        return View(model);
+                  }
                   foreach(var category in _ListOfCategory)
                   {
                         if (category.CategoryName.Contains(model.CategoryName))
@@ -117,21 +121,25 @@ namespace Conneck.WebMVC.Controllers
                   return View(model);
             }
 
+            [ActionName("Delete")]
             public ActionResult Delete(int inputID)
             {
                   var service = CreateCategoryService();
-                  var model = service.DeleteCategoryById(inputID);
+                  var model = service.GetCategoryById(inputID);
 
                   return View(model);
             }
 
             [HttpPost]
+            [ActionName("Delete")]
             [ValidateAntiForgeryToken]
+            
             public ActionResult DeletePost(int inputID)
             {
                   var service = CreateCategoryService();
 
                   service.DeleteCategoryById(inputID);
+
                   TempData["SaveResult"] = "Item was Deleted.";
                   return RedirectToAction("Index");
 

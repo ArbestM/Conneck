@@ -14,8 +14,9 @@ namespace Conneck.Models
 
             public string Make { get; set; }
 
-            [Required]
-            public string Model { get; set; }
+          
+            [Display(Name ="Model")]
+            public string CarM { get; set; }
 
             public string Color { get; set; }
 
@@ -28,7 +29,7 @@ namespace Conneck.Models
             [Display(Name = "License Plate")]
             public string LincesePlate { get; set; }
 
-            [Required]
+            
             public int Year { get; set; }
 
             

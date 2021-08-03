@@ -27,7 +27,7 @@ namespace Conneck.Data
             public string Make { get; set; }
 
             [Required]
-            public string Model { get; set; }
+            public string CarM { get; set; }
 
             [Required]
             public string Color { get; set; }
@@ -56,10 +56,10 @@ namespace Conneck.Data
             public int StoreID { get; set; }
             public virtual Store Store { get; set; }
 
-            public virtual Admin Admin { get; set; }
+            public int Admin { get; set; }
 
             [ForeignKey(nameof(CarCategory))]
-            public int? CategoryID { get; set; }
+            public int CategoryID { get; set; }
             public virtual CarCategory CarCategory { get; set; }
 
       }

@@ -19,7 +19,7 @@ namespace Conneck.Models
             [Required]
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
             [MaxLength(100, ErrorMessage = "There are too many characters in this fiels.")]
-            public string Model { get; set; }
+            public string CarM { get; set; }
 
             [Required]
             [MinLength(2, ErrorMessage = "Please enter at least 2 characters")]
@@ -47,11 +47,17 @@ namespace Conneck.Models
 
             [Required]
             public int Year { get; set; }
-           
-            [ForeignKey(nameof(Admin))]
-            [Display(Name = "Admin ID")]
+    
+            [Required]
             public int AdminID { get; set; }
 
-            public virtual Admin Admin { get; set; }
+            [Required]
+            public int StoreID { get; set; }
+
+            
+            public int Mileage { get; set; }
+
+            
+            public int Rate { get; set; }
       }
 }

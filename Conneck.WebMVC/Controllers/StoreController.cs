@@ -44,7 +44,7 @@ namespace Conneck.WebMVC.Controllers
                               ModelState.AddModelError("", "There is a store registered with this name+\n Please choose different name");
                               return View(model);
                         }
-                        else if (store.Admin.Email.Equals(model.Email))
+                        else if (store.Email.Equals(model.Email))
                         {
                               ModelState.AddModelError("", "This email is already used");
                               return View(model);

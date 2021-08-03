@@ -3,105 +3,135 @@
 @{
     ViewBag.Title = "Details";
 }
+<br />
+<h1>Administrator Profile</h1>
+<form method="post">
+    <br />
 
-<h2>Details</h2>
+    <div class="border col-sm-7">
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.FirstName)
+            </div>
+        </div>
+        <br />
 
-<div>
-    <h4>DetailAdmin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AdminID)
-        </dt>
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.LastName)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.LastName)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Phone)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Phone)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Email)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Address)
+            </div>
+            <div class="col-5">
+                @Html.DisplayFor(model => model.Address)
+            </div>
+        </div>
+        <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.AdminID)
-        </dd>
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.City)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.City)
+            </div>
+        </div>
+        <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Zip)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Zip)
+            </div>
+        </div>
+        <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.State)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.State)
+            </div>
+        </div>
+        <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.Store)
+            </div>
+            <div class="col-2">
+                @Html.DisplayFor(model => model.Store)
+            </div>
+        </div>
+        <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </div>
+            <div class="col-5">
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </div>
+        </div>
+        <br />
 
+        <div class="row">
+            <div class="col-5">
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </div>
+            <div class="col-5">
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </div>
+        </div>
+        <br />
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+</form>
+<br />
+<div class="form-group row">
+    <div class="col-sm-8 ">
+        <div class="row">
+            <div class="col-5">
+                @Html.ActionLink("Update ", "Edit", new { adminID = Model.AdminID }, htmlAttributes: new { @class = "col-sm-12 btn btn-primary text-white" })
+            </div>
+            <div class="col-5">
+                <a href="Index" class="btn btn-success form-control">
+                    &nbsp; Back to List
+                </a>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Zip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Zip)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Store)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Store)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {  adminID = Model.AdminID  }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

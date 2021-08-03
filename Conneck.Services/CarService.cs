@@ -27,13 +27,17 @@ namespace Conneck.Services
                         new Car()
                         {
                               Make = model.Make,
-                              Model = model.Model,
+                              CarM = model.CarM,
                               Color = model.Color,
                               VIN = model.VIN,
                               CarType = model.CarType,
                               LicensePlate = model.LicensePlate,
                               Year = model.Year,
-                              StoreID = model.Admin.AdminID,
+                              CategoryID = model.CategoryID,
+                              StoreID = model.StoreID,
+                              Admin = model.AdminID,
+                              Mileage = model.Mileage,
+                              Rate = model.Rate
                         };
 
                   using (var ctx = new ApplicationDbContext())
@@ -62,7 +66,7 @@ namespace Conneck.Services
                                           CarID = e.CarID,
                                           Make = e.Make,
                                           CarType = e.CarType,
-                                       //   CategoryID = e.CategoryID,
+                                            CategoryID = e.CategoryID,
                                           Store = e.Store.StoreID,
 
                                     });
@@ -83,7 +87,7 @@ namespace Conneck.Services
                         {
                               CarID = entity.CarID,
                               Make = entity.Make,
-                              Model = entity.Model,
+                              CarM = entity.CarM,
                               Color = entity.Color,
                               VIN = entity.VIN,
                               LincesePlate = entity.LicensePlate,
@@ -109,11 +113,11 @@ namespace Conneck.Services
                               .Single(e => e.CarID == model.CarID);
 
                         entity.Make = model.Make;
-                        entity.Model = model.Model;
+                        entity.CarM = model.CarM;
                         entity.Color = model.Color;
                         entity.CarType = model.CarType;
                         entity.LicensePlate = model.LicensePlate;
-                        entity.Admin.AdminID = model.AdminID;
+                        entity.Admin = model.AdminID;
                         entity.Modified = DateTimeOffset.UtcNow;
 
                         return ctx.SaveChanges() == 1;

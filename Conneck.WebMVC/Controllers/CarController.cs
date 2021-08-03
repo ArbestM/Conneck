@@ -77,7 +77,7 @@ namespace Conneck.WebMVC.Controllers
                   {
                         CarID = detail.CarID,
                         Make = detail.Make,
-                        Model = detail.Model,
+                        CarM = detail.CarM,
                         Color = detail.Color,                  
                         LicensePlate = detail.LincesePlate,
                         AdminID = detail.AdminID,

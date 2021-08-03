@@ -11,6 +11,7 @@ using System.Web.Mvc;
 namespace Conneck.WebMVC.Controllers
 {
 
+    [Authorize]
       public class AdminController : Controller
       {
             private readonly ApplicationDbContext _db = new ApplicationDbContext();
@@ -38,7 +39,7 @@ namespace Conneck.WebMVC.Controllers
             [ValidateAntiForgeryToken]
             public ActionResult Create(CreateAdmin model)
             {
-
+                  //
                   if (!ModelState.IsValid)
                   {
                         return View(model);

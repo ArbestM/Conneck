@@ -3,112 +3,80 @@
 @{
     ViewBag.Title = "Details";
 }
+<br />
+<h2> Car Details</h2>
 
-<h2>Details</h2>
+<form method="post">
+    @Html.AntiForgeryToken()
 
-<div>
-    <h4>CarDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CarID)
-        </dt>
+    <div class="backgroundWhite border  col-sm-7 ">
 
-        <dd>
-            @Html.DisplayFor(model => model.CarID)
-        </dd>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-row">
+            @Html.LabelFor(model => model.Make, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.Make, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.Make, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.CarM, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.CarM, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.CarM, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.Color, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.VIN, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.VIN, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.VIN, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.LincesePlate, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.LincesePlate, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.LincesePlate, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.Year, new { htmlAttributes = new { @class = "form-control col-5" } })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.CategoryID, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.Year, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="row">
+            @Html.LabelFor(model => model.AdminID, htmlAttributes: new { @class = "control-label col-5" })
+            @Html.DisplayFor(model => model.AdminID, new { htmlAttributes = new { @class = "form-control col-2" } })
+            @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Make)
-        </dt>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-3">
+            @Html.ActionLink("Update ", "Edit", new { carID = Model.CarID }, htmlAttributes: new { @class = "col-sm-12 btn btn-primary text-white" })
+        </div>
+        <div class="col-4">
+            <a href="Index" class="btn btn-success form-control">
+                &nbsp; Back to List
+            </a>
+        </div>
+    </div>
+</form>
 
-        <dd>
-            @Html.DisplayFor(model => model.Make)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VIN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VIN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LincesePlate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LincesePlate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AdminID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AdminID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Store)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Store)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { carID = item.CarID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

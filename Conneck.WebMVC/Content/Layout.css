@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #F2F4F4;
+    background: url(../Content/assets/dust_scratches.png) no-repeat;
 }
 
 h2, h3, h4, #transition, footer {

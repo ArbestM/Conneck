@@ -3,118 +3,79 @@
 @{
     ViewBag.Title = "Delete";
 }
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CarDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CarID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Make)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Make)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VIN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VIN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LincesePlate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LincesePlate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AdminID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AdminID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Store)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Store)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<br />
+<h1>Are you sure you want to delete</h1>
+<form method="post">
+    @Html.AntiForgeryToken()
+    
+    <div class="backgroundWhite border  col-8 ">
+        <h2>This Car info?</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Make, htmlAttributes: new { @class = "control-label col-2" })
+            @Html.DisplayFor(model => model.Make, new { htmlAttributes = new { @class = "form-control col-7" } })
+            @Html.ValidationMessageFor(model => model.Make, "", new { @class = "text-danger" })
         </div>
-    }
-</div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CarM, htmlAttributes: new { @class = "control-label col-2" })
+            @Html.DisplayFor(model => model.CarM, new { htmlAttributes = new { @class = "form-control col-7" } })
+            @Html.ValidationMessageFor(model => model.CarM, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-2" })
+            @Html.DisplayFor(model => model.Color, new { htmlAttributes = new { @class = "form-control col-8" } })
+            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.VIN, htmlAttributes: new { @class = "control-label col-2" })
+            @Html.DisplayFor(model => model.VIN, new { htmlAttributes = new { @class = "form-control col-sm-7" } })
+            @Html.ValidationMessageFor(model => model.VIN, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.LincesePlate, htmlAttributes: new { @class = "control-label col-2" })
+            @Html.DisplayFor(model => model.LincesePlate, new { htmlAttributes = new { @class = "form-control col-8" } })
+            @Html.ValidationMessageFor(model => model.LincesePlate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2 " })
+            @Html.DisplayFor(model => model.Year, new { htmlAttributes = new { @class = "form-control col-10" } })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-sm-2" })
+            @Html.DisplayFor(model => model.CategoryID, new { htmlAttributes = new { @class = "form-control col-7" } })
+            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Year, new { htmlAttributes = new { @class = "form-control col-sm-7" } })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.AdminID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.AdminID, new { htmlAttributes = new { @class = "form-control col-sm-7" } })
+            @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-4">
+            <input type="submit" value="YES" class="btn btn-info form-control" />
+
+        </div>
+        <div class="col-4">
+            <a href="Index" class="btn btn-success form-control">
+                &nbsp; NON
+            </a>
+        </div>
+    </div>
+</form>
